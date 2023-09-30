@@ -65,14 +65,13 @@ document.querySelector("#divideNumbers").addEventListener('click', divideNumbers
 
 /* Decision Structure */
 
-/*const currentDate = today();
+const currentDate = new Date();
 
-const currentYear = "";
+let currentYear = "";
 
- currentYear = today().getFullYear();
+currentYear = new Date().getFullYear();
 
-document.getElementById("year").value = currentYear; */
-
+document.getElementById("year").innerHTML = currentYear;
 
 /* ARRAY METHODS - Functional Programming */
 
