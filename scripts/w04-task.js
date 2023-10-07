@@ -44,7 +44,7 @@ myProfile.placesLived.push(
     {
         place: 'HongKong',
         length: '4 years'
-    },
+    }
 );
 
 
