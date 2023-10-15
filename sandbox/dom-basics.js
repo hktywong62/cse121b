@@ -7,7 +7,6 @@ newImage.setAttribute("src", "https://picsum.photos/200");
 newImage.setAttribute("alt", "Description of image");
 document.body.appendChild(newImage);
 
-
  const newSection = document.createElement("section");
 const newH2 = document.createElement("h2");
 newH2.innerText = "CSE 121b";
