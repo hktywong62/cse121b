@@ -10,7 +10,7 @@ const templeList = [];
 
 const displayTemples = (temples) => {
 
-    temples.forEach((temple) => {
+    templeList.forEach((temples) => {
 
         const articleElement = document.createElement("article");
 
@@ -18,37 +18,40 @@ const displayTemples = (temples) => {
         h3Element.textContent = "templeName";
         articleElement.appendChild(h3Element);
 
-        const templeImage = document.createElement("img");
-        templeImage.src = "imageUrl";
-        templeImage.alt = "location";
-        articleElement.appendChild(templeImage);
+        const imageElement = document.createElement("img");
+        imageElement.setAttribute("src", "imageUrl");
+        imageElement.setAttribute("alt", "location");
+        articleElement.appendChild(imageElementmage);
 
         templesElement.appendChild(articleElement);
+
+        document.body.appendChild(templesElement);
 
     })
     
 
 /* async getTemples Function using fetch()*/
 
-    let results = null;
+const url =  "https//byui-cse.github.io/cse121b-ww-course/resources/temples.json";
+
+let results = null;
 
     const getTemples = async () => {
 
-        const response = await fetch("https//byui-cse.github.io/cse121b-ww-course/resources/temples.json");
+        const response = await fetch(url);
         
         if (response.ok){
             const data = await response.json();
             doStuff(data);
         }
-        displayTemples(templeList);
     }
-
-    function doStuff(data) {
+    function doStuff(data){
         results = data;
-        templeList.push(results);
+        templeList = data.results;
+        templesElement.innerHTML = templeList
     }
-
-
+    getTemples(templeList);
+    
 /* reset Function */
 
 function reset(){
@@ -70,12 +73,12 @@ function reset(){
 
             case "utah":
             
-            displayTemples(temples.filter((temple) => temple.location .includes("Utah")));
+            displayTemples(temples.filter((temple) => temple.location.includes("Utah")));
             break;
 
             case "nonutah":
 
-            displayTemples(temples.filter((temple) => !temple.location .includes("Utah")));
+            displayTemples(temples.filter((temple) => !temple.location.includes("Utah")));
             break;
             
             case "older":
@@ -100,6 +103,4 @@ function reset(){
     }
     );
 }
-
-getTemples()
 
