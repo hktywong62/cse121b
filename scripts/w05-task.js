@@ -21,11 +21,11 @@ const displayTemples = (temples) => {
         const imageElement = document.createElement("img");
         imageElement.setAttribute("src", "imageUrl");
         imageElement.setAttribute("alt", "location");
-        articleElement.appendChild(imageElementmage);
+        articleElement.appendChild(imageElement);
 
         templesElement.appendChild(articleElement);
 
-        document.body.appendChild(templesElement);
+        /*document.body.appendChild(templesElement);*/
 
     })
     
@@ -44,13 +44,15 @@ let results = null;
             const data = await response.json();
             doStuff(data);
         }
+
+        displayTemples(templeList);
     }
     function doStuff(data){
         results = data;
         templeList = data.results;
         templesElement.innerHTML = templeList
     }
-    getTemples(templeList);
+    
     
 /* reset Function */
 
@@ -95,12 +97,8 @@ function reset(){
 
 /* Event Listener */
 
-    const sortByElement = document.getElementById("sortBy");
+     document.querySelector("#sortBy").addEventListener("change",() => {sortBy(templeList)});
 
-    sortByElement.addEventListener("change", () => {
-        sortBy(templeList);
 
-    }
-    );
-}
 
+getTemples()};
