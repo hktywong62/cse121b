@@ -8,7 +8,7 @@ const templeList = [];
 
 /* async displayTemples Function */
 
-const displayTemples = (temples) => {
+const displayTemples = (temples) => 
 
     templeList.forEach((temples) => {
 
@@ -16,23 +16,22 @@ const displayTemples = (temples) => {
 
         const h3Element = document.createElement("h3");
         h3Element.textContent = "templeName";
-        articleElement.appendChild(h3Element);
+        
 
         const imageElement = document.createElement("img");
         imageElement.setAttribute("src", "imageUrl");
         imageElement.setAttribute("alt", "location");
+        
+        articleElement.appendChild(h3Element);
         articleElement.appendChild(imageElement);
-
         templesElement.appendChild(articleElement);
-
-        /*document.body.appendChild(templesElement);*/
-
-    })
     
+    })
+
 
 /* async getTemples Function using fetch()*/
 
-const url =  "https//byui-cse.github.io/cse121b-ww-course/resources/temples.json";
+const url =  "https://byui-cse.github.io/cse121b-ww-course/resources/temples.json";
 
 let results = null;
 
@@ -49,8 +48,8 @@ let results = null;
     }
     function doStuff(data){
         results = data;
-        templeList = data.results;
-        templesElement.innerHTML = templeList
+        templeList = results;
+        templesElement.innerHTML = templeList;
     }
     
     
@@ -58,7 +57,7 @@ let results = null;
 
 function reset(){
 
-        templesElement.removeChild(article);
+        templesElement.removeChild(articleElement);
   
   };
 
@@ -101,4 +100,6 @@ function reset(){
 
 
 
-getTemples()};
+getTemples();
+displayTemples();
+
