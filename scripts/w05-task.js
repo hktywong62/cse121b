@@ -10,7 +10,7 @@ const templeList = [];
 
 const displayTemples = (temples) => 
 
-    templeList.forEach((temples) => {
+    {templeList.forEach((temples) => {
 
         const articleElement = document.createElement("article");
 
@@ -27,6 +27,7 @@ const displayTemples = (temples) =>
         templesElement.appendChild(articleElement);
     
     })
+}
 
 
 /* async getTemples Function using fetch()*/
@@ -44,7 +45,7 @@ let results = null;
             doStuff(data);
         }
 
-        displayTemples(templeList);
+        
     }
     function doStuff(data){
         results = data;
@@ -52,6 +53,7 @@ let results = null;
         templesElement.innerHTML = templeList;
     }
     
+    displayTemples(templeList);  
     
 /* reset Function */
 
